@@ -9,6 +9,9 @@
     "compile": "rollup -c",
     "build": "npm run purge && npm run compile"
   },
+  "files": [
+    "dist/*.js"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
