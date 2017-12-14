@@ -13,6 +13,7 @@ export default {
   ],
   plugins: [
     vue({
+        css: 'dist/bundle.css',
         compileTemplate: true,
         standalone: true
     }),

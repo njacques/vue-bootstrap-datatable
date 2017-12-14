@@ -10,7 +10,7 @@
     "build": "npm run purge && npm run compile"
   },
   "files": [
-    "dist/*.js"
+    "dist/*"
   ],
   "keywords": [],
   "author": "",
