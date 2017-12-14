@@ -35,12 +35,10 @@ export const paginate = (items, options) => {
   return paginated;
 }
 
-export const generateFilterOptions = (items, columnOpts) => {
-  console.log('regen filter opts');
-  return toPairs(columnOpts)
-      .filter(([column, options]) => options.filter === 'dropdown')
-      .reduce((values, [column, options]) => {
-        values[column] = uniq(map(items, column))
-        return values;
-      }, {});
-}
+export const generateFilterOptions = (items, columnOpts) =>
+  toPairs(columnOpts)
+    .filter(([column, options]) => options.filter === 'dropdown')
+    .reduce((values, [column, options]) => {
+      values[column] = uniq(map(items, column))
+      return values;
+    }, {});
