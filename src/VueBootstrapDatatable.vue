@@ -91,15 +91,21 @@ export default {
   props: {
     items: {
       type: Array,
-      default: []
+      default() {
+        return {}
+      }
     },
     columns: {
       type: Object,
-      default: {}
+      default() {
+        return {}
+      }
     },
     actions: {
       type: Array,
-      default: []
+      default() {
+        return []
+      }
     },
     paginate: {
       type: Boolean,
