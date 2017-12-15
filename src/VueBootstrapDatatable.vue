@@ -44,7 +44,7 @@
       </thead>
 
       <tbody>
-        <tr v-for="(row, idx) in processedItems" :key="row[itemKey]">
+        <tr v-for="(row, idx) in processedItems" :key="row[itemKey]" @click="onRowClick(row)">
           <td v-for="(config, column) in columns" :key="idx + column">{{ row[column] }}</td>
           <td v-if="actions">
             <button
@@ -110,6 +110,10 @@ export default {
     paginate: {
       type: Boolean,
       default: false
+    },
+    rowCallback: {
+      type: Function,
+      default: null
     }
   },
 
@@ -172,6 +176,12 @@ export default {
   },
 
   methods: {
+    onRowClick(item) {
+      if (this.rowCallback && typeof this.rowCallback === 'function') {
+        this.rowCallback(item);
+      }
+    },
+
     setSort(key) {
       this.sortKey = key
       this.sortOrder = (this.sortOrder === 'asc') ? 'desc' : 'asc'
