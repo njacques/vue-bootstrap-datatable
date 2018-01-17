@@ -22,8 +22,8 @@ export const filterItems = (items, filterObj) => {
 
 export const paginate = (items, options) => {
   const itemsPerPage = options.per_page;
-  const currentPage = options.current_page;
   const lastPage = Math.ceil(items.length / itemsPerPage);
+  const currentPage = options.current_page > lastPage ? 1 : options.current_page;
   const offset = itemsPerPage * (currentPage - 1);
 
   const paginated = items.slice(offset, offset + itemsPerPage);
@@ -31,6 +31,8 @@ export const paginate = (items, options) => {
   options.total = paginated.length;
   // Hide pagination if there's only a single page of results
   options.last_page = (lastPage > 1) ? lastPage : 0;
+  // Move to first page if current page doesn't exist in paginated results
+  options.current_page = currentPage;
 
   return paginated;
 }
