@@ -41,6 +41,6 @@ export const generateFilterOptions = (items, columnOpts) =>
   toPairs(columnOpts)
     .filter(([column, options]) => options.filter === 'dropdown')
     .reduce((values, [column, options]) => {
-      values[column] = uniq(map(items, column))
+      values[column] = uniq(map(items, column)).sort();
       return values;
     }, {});
