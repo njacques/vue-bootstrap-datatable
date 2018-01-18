@@ -1,6 +1,6 @@
 {
   "name": "vue-bootstrap-datatable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/vue-bootstrap-datatable.common.js",
   "module": "dist/vue-bootstrap-datatable.esm.js",
